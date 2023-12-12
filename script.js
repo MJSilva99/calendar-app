@@ -43,5 +43,12 @@ function createTimeBlock(currentHour) {
 
     $(".container").append(timeBlock);
 
-
+// Set the color based on the hour of the day
+if (currentHour < dayjs().hour()) {
+    timeBlock.addClass("past");
+} else if (currentHour === dayjs().hour()) {
+    timeBlock.addClass("present");
+} else {
+    timeBlock.addClass("future");
+}
 }
