@@ -32,6 +32,15 @@ function createTimeBlock(currentHour) {
     timeBlock.append(textArea);
     timeBlock.append(saveBtn);
 
+    textArea.val(localStorage.getItem("hour-" + currentHour) || "");
+
+  // Save to local storage
+  saveBtn.click(function () {
+      localStorage.setItem("hour-" + currentHour, textArea.val());
+
+      console.log(hour, ":", localStorage.getItem("hour-" + currentHour));
+  });
+
     $(".container").append(timeBlock);
 
 
